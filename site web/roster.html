@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>AVM | Esports - Roster</title>
+  <style>
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #000000, #333333, #ffffff, #000000);
+      background-size: 600% 600%;
+      animation: bgAnimation 20s ease infinite;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+    }
+
+    .left-header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: red;
+      margin: 0;
+    }
+
+    nav.nav-links {
+      display: flex;
+      gap: 20px;
+      margin-left: 30px;
+    }
+
+    nav.nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav.nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .right-header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .right-header button {
+      padding: 10px 15px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .right-header button:hover {
+      background-color: darkred;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      font-size: 28px;
+      border-bottom: 2px solid red;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .team-roster {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .team-member {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 20px;
+      width: 200px;
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: rgba(0,0,0,0.85);
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img src="Design sans titre (1).png.png" alt="AVM Logo">
+      <h1>AVM | Esports</h1>
+      <nav class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="roster.html">Roster</a>
+        <a href="events.html">Events</a>
+        <a href="creators.html">Creators</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="right-header" id="authButtons">
+      <!-- Boutons connexion ajoutés en JS -->
+    </div>
+  </header>
+
+  <main>
+    <!-- Roster Équipe 1 -->
+    <section>
+      <h2>Brawl Stars - Équipe 1</h2>
+      <p>Notre équipe phare pour les tournois majeurs de Brawl Stars.</p>
+      <div class="team-roster">
+        <div class="team-member">
+          <img src="alpha1.jpg" alt="Zetron">
+          <h3>Zetron</h3>
+        </div>
+        <div class="team-member">
+          <img src="alpha2.jpg" alt="NovaX">
+          <h3>NovaX</h3>
+        </div>
+        <div class="team-member">
+          <img src="alpha3.jpg" alt="RageKid">
+          <h3>RageKid</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roster Équipe 2 -->
+    <section>
+      <h2>Brawl Stars - Équipe 2</h2>
+      <p>Des talents émergents avec un potentiel explosif.</p>
+      <div class="team-roster">
+        <div class="team-member">
+          <img src="bravo1.jpg" alt="NAME?">
+          <h3>NAME?</h3>
+        </div>
+        <div class="team-member">
+          <img src="bravo2.jpg" alt="NAME?">
+          <h3>NAME?</h3>
+        </div>
+        <div class="team-member">
+          <img src="bravo3.jpg" alt="NAME?">
+          <h3>NAME?</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roster Équipe 3 -->
+    <section>
+      <h2>Brawl Stars - Équipe 3</h2>
+      <p>Notre nouvelle génération prête à conquérir les arènes !</p>
+      <div class="team-roster">
+        <div class="team-member">
+          <img src="charlie1.jpg" alt="Xedagax">
+          <h3>Xedagax</h3>
+        </div>
+        <div class="team-member">
+          <img src="charlie2.jpg" alt="Blink">
+          <h3>King</h3>
+        </div>
+        <div class="team-member">
+          <img src="charlie3.jpg" alt="Drift">
+          <h3>Supernova</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AVM | Esports. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const username = localStorage.getItem('username');
+    const userInfoDiv = document.getElementById('authButtons');
+
+    if (username) {
+      userInfoDiv.innerHTML = `
+        <button onclick="logout()">Déconnexion</button>
+      `;
+    } else {
+      userInfoDiv.innerHTML = `
+        <a href="signup.html"><button>Sign Up</button></a>
+        <a href="signin.html"><button>Sign In</button></a>
+      `;
+    }
+
+    function logout() {
+      localStorage.removeItem('username');
+      window.location.href = 'roster.html';
+    }
+  </script>
+
+</body>
+</html>

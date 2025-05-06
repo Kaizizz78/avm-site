@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | AVM Esports</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #000000, #333333, #ffffff, #000000);
+      background-size: 600% 600%;
+      animation: bgAnimation 20s ease infinite;
+      color: white;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: red;
+      margin: 0;
+    }
+
+    .container {
+      width: 350px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+      margin-top: 50px;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-top: 5px;
+    }
+
+    .form-group input:focus {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .form-group button:hover {
+      background-color: darkred;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Design sans titre (1).png.png" alt="AVM Logo">
+    <h1>AVM | Esports</h1>
+  </header>
+
+  <div class="container">
+    <h2>Se connecter</h2>
+    <form id="sign-in-form">
+      <div class="form-group">
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" name="email" required placeholder="Entrez votre email">
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required placeholder="Entrez votre mot de passe">
+      </div>
+      <div class="form-group">
+        <button type="submit">Se connecter</button>
+      </div>
+      <p style="text-align: center; color: white;">Mot de passe oublié ? <a href="#">Cliquez ici</a></p>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AVM | Esports. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.getElementById('sign-in-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Simulation d'une vérification des informations d'identification
+      if (email === "user@example.com" && password === "password123") {
+        // Sauvegarde de l'utilisateur connecté dans le localStorage
+        localStorage.setItem('user', email);
+
+        // Redirection vers la page d'accueil après une connexion réussie
+        window.location.href = "index.html";
+      } else {
+        alert('Identifiants incorrects. Veuillez réessayer.');
+      }
+    });
+
+    // Vérifier si l'utilisateur est déjà connecté, sinon rediriger vers la page de connexion
+    if (localStorage.getItem('user')) {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

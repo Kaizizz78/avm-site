@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - AVM | Esports</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #000000, #333333, #ffffff, #000000);
+      background-size: 600% 600%;
+      animation: bgAnimation 20s ease infinite;
+      color: white;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+    }
+
+    .left-header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: red;
+      margin: 0;
+    }
+
+    nav.nav-links {
+      display: flex;
+      gap: 20px;
+      margin-left: 30px;
+    }
+
+    nav.nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav.nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .right-header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .right-header button {
+      padding: 10px 15px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .right-header button:hover {
+      background-color: darkred;
+    }
+
+    .welcome-message {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 24px;
+    }
+
+    .presentation-team {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .presentation-team h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
+
+    .team-description {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="left-header">
+      <img src="Design sans titre (1).png.png" alt="AVM Logo">
+      <h1>AVM | Esports</h1>
+      <nav class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="roster.html">Roster</a>
+        <a href="events.html">Events</a>
+        <a href="creators.html">Creators</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="right-header" id="authButtons">
+      <!-- Boutons connexion ajoutés en JS -->
+    </div>
+  </header>
+
+  <div class="welcome-message" id="welcomeMessage">
+    <!-- Le message de bienvenue s'affichera ici -->
+  </div>
+
+  <div class="presentation-team">
+    <h2>Présentation de la Team</h2>
+    <p class="team-description">
+      Chez AVM Esports, nous sommes une équipe de passionnés de jeux vidéo, prêts à défier les meilleures équipes du monde. Notre équipe est composée de joueurs expérimentés qui participent à des tournois prestigieux et dominent leurs jeux respectifs.
+    </p>
+    <p class="team-description">
+      Chaque membre de l’équipe est un expert dans son domaine, et ensemble, nous créons une dynamique qui fait notre force. Que vous soyez un fan de Brawl Stars, Fortnite, ou tout autre jeu compétitif, AVM Esports est là pour vous impressionner !
+    </p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AVM | Esports. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Vérification de la connexion et affichage des informations
+    const username = localStorage.getItem('username');
+    const userInfoDiv = document.getElementById('authButtons');
+
+    if (username) {
+      document.getElementById('welcomeMessage').innerHTML = `Bienvenue, ${username}!`;
+
+      userInfoDiv.innerHTML = `
+        <button onclick="logout()">Déconnexion</button>
+      `;
+    } else {
+      userInfoDiv.innerHTML = `
+        <a href="signup.html"><button>Sign Up</button></a>
+        <a href="signin.html"><button>Sign In</button></a>
+      `;
+    }
+
+    // Fonction de déconnexion
+    function logout() {
+      // Suppression des informations de connexion du localStorage
+      localStorage.removeItem('username');
+      localStorage.removeItem('email');
+      localStorage.removeItem('password');
+      // Redirection vers la page d'accueil après la déconnexion
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>
